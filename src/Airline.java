@@ -27,14 +27,14 @@ class Airline {
 	// appropriate sections.
 	public void Menu() {
 		int choice = 0;
-
 		int counter = 0;
-
+		
+		//This loop initialize all seats to empty(Available)
 		for (int index = 0; index < 5; index++) {
 			firstClassSeats[index] = false;
 			economySeats[index] = false;
 		}
-
+		//Seat choice menu
 		while (choice != 3) {
 			counter += 1;
 			System.out.print("****************************************");
