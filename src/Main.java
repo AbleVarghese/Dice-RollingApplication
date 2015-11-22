@@ -1,52 +1,49 @@
+/*
+Program:Contains an 'Airline Ticket Reservation Application' and 'Dice Rolling Application'
+
+Program Description: This class calls two application as you choose them.
+It contains an Airline ticket reservation Applicaiton and Dice Rolling Application
+
+Name: Able Varghese
+Student No: 300 806 936
+ */
+
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
-	public Main() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public static void main(String[] args) {
 
-		int ran1, ran2, ranSum;
-		int[] sumArray = new int[12];
-		int[] sumRepeat = new int[12];
+		Scanner scan = new Scanner(System.in);
 
-		Random Dice1 = new Random();
-		Random Dice2 = new Random();
+		int select = 0;
 
-		// Initialize sumArray
-		for (int i = 0; i < 11; i++) {
+		while (select != 3) {
+			System.out.println("\n*************************************************");
+			System.out.println(
+					"\nPlease make your choice between Applications. \n\n1. Rolling Dice App. \n2. Airline Reservation System\n3. Exit\n");
+			System.out.println("*************************************************");
+			select = scan.nextInt();
 
-			sumArray[i] = i + 2;
-
-		}
-
-		for (int j = 0; j < 11; j++) {
-
-			sumRepeat[j] = 0;
-
-		}
-
-		for (int n = 0; n < 36000; n++) {
-
-			ran1 = 1 + Dice1.nextInt(6);
-			ran2 = 1 + Dice2.nextInt(6);
-			ranSum = ran1 + ran2;
-
-			for (int m = 0; m < 35; m++) {
-				if (sumArray[m] == ranSum) {
-					sumRepeat[m]++;
-					break;
-				}
+			if (select == 1) {
+				Dice_Rolling_App Obj1 = new Dice_Rolling_App();
+				select = 0;
 
 			}
-		}
 
-		// Print array
+			else if (select == 2) {
+				Airline Flight = new Airline();
+				select = 0;
+			} else if (select == 3) {
+				System.out.println("\nExiting the system......");
+				return;
+			}
 
-		for (int k = 0; k < 11; k++) {
-			System.out.println("Total number of occurance of sum:"+sumArray[k] + " is = " + sumRepeat[k]);
+			else {
+				System.out.println("\nPlease enter choice No. 1 or choice No. 2, or choice No. 3");
+
+			}
 		}
 
 	}

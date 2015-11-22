@@ -1,22 +1,30 @@
 
+/*
+Program: Airline Reservation Application
+Program Description: An airline has one flight. Flight has 10 seats. The first 5 are First Class seats, 
+and 6th to 10th seats are Economy seats. This is the Airline Reservation Application that reserve seats 
+for its passengers based on their needs.
+
+Name: Able Varghese
+Student No: 300 806 936
+ */
+
 import java.util.Scanner;
 
+//Airline class
 class Airline {
 	public boolean[] firstClassSeats = new boolean[5];
 	public boolean[] economySeats = new boolean[5];
 	Scanner scan = new Scanner(System.in);
 
-	public static void main(String[] args) {
-
-		Airline Flight = new Airline();
-		Flight.Menu();
+	// Constructor of Airline Class
+	Airline() {
+		Menu();
+		return;
 	}
 
-	// Airline(){
-
-	//
-	// }
-
+	// Menu method where the program directs and help reserve seats in
+	// appropriate sections.
 	public void Menu() {
 		int choice = 0;
 
@@ -44,19 +52,19 @@ class Airline {
 
 				break;
 
-			case 3:
-				System.out.println("\nExiting the system");
-				break;
+			case 3: {
+				System.out.println("\nExiting the airline reservation system......");
+				return;
+			}
 
 			default:
 				System.out.println("\nInvalid input. Please make a correct selection.....\n");
 				break;
-
 			}
 		}
-
 	}
 
+	// This method reserve economy seats if they are available.
 	public void EconomySeatReservation() {
 		int indexSeatNo = 6;
 		int index2 = 0;
@@ -89,12 +97,11 @@ class Airline {
 			}
 			if (changeClass == "no" || changeClass == "NO") {
 				return;
-
 			}
 		}
-
 	}
 
+	// This method reserve first class seats if they are available.
 	public void FirstClassSeatReservation() {
 		int index = 1;
 		int loopIndex = 0;
@@ -127,13 +134,11 @@ class Airline {
 		}
 		if (changeClass == "no" || changeClass == "NO") {
 			return;
-
 		}
-
 		return;
-
 	}
 
+	// This method determines if the seats are available to reserve or not.
 	public int SeatsFullMethod() {
 
 		int seatFullIndex = 0;
@@ -146,7 +151,6 @@ class Airline {
 				return (seatFullIndex);
 
 			}
-
 		}
 
 		return (seatFullIndex);
